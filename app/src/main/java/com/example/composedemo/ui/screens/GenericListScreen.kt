@@ -27,7 +27,6 @@ fun GenericListScreen(
     val listScreenState = viewModel.genericListScreenState.collectAsState()
     Surface(
         modifier = modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.primary,
     ) {
         GenericListComponent(
             listState = listScreenState.value.genericListState,

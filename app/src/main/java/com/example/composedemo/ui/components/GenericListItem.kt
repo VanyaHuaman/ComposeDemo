@@ -30,7 +30,6 @@ import com.example.composedemo.R
 import com.example.composedemo.domain.mock.mockGenericItemState
 import com.example.composedemo.ui.states.GenericItemState
 import com.example.composedemo.ui.theme.ComposeDemoTheme
-import com.example.composedemo.ui.theme.Typography
 
 @Composable
 fun GenericListItem(
@@ -47,7 +46,7 @@ fun GenericListItem(
                     stiffness = Spring.StiffnessLow
                 )
             )
-            .background(MaterialTheme.colorScheme.onTertiaryContainer)
+            .background(MaterialTheme.colorScheme.primary)
     ) {
         Column(
             modifier.padding(12.dp)
@@ -55,7 +54,6 @@ fun GenericListItem(
             Row {
                 Text(
                     text = itemState.title,
-                    style = Typography.titleMedium,
                     modifier = Modifier
                         .weight(1f)
                         .align(Alignment.CenterVertically)
@@ -83,7 +81,6 @@ fun GenericListItem(
                 ) {
                     Text(
                         text = itemState.message,
-                        style = Typography.bodyMedium
                     )
                 }
             }
