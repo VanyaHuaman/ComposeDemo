@@ -10,6 +10,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.composedemo.di.Modules
 import com.example.composedemo.ui.components.GenericListComponent
 import com.example.composedemo.ui.theme.ComposeDemoTheme
@@ -19,6 +20,7 @@ import org.koin.compose.KoinApplication
 
 @Composable
 fun GenericListScreen(
+    navHostController: NavHostController?,
     modifier: Modifier = Modifier,
     viewModel: GenericListScreenViewModel = koinViewModel()
 ) {
@@ -44,7 +46,7 @@ fun GenericListScreenPreview() {
         modules(Modules.appModule, Modules.viewModelModule)
     }) {
         ComposeDemoTheme {
-            GenericListScreen()
+            GenericListScreen(null)
         }
     }
 }

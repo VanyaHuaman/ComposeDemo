@@ -9,6 +9,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.composedemo.di.Modules
 import com.example.composedemo.ui.screens.GenericListScreen
 import com.example.composedemo.ui.theme.ComposeDemoTheme
@@ -31,16 +35,33 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(KoinExperimentalAPI::class)
 @Composable
 fun AppRootComponent(modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier,
         color = MaterialTheme.colorScheme.background
     ) {
-        GenericListScreen()
+        MyAppNavHost()
     }
 }
+
+@Composable
+fun MyAppNavHost(
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController(),
+    startDestination: String = "GenericListScreen"
+) {
+    NavHost(
+        modifier = modifier,
+        navController = navController,
+        startDestination = startDestination
+    ) {
+        composable("GenericListScreen") {
+            GenericListScreen(navController)
+        }
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
