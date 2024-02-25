@@ -1,4 +1,4 @@
-package com.example.composedemo
+package com.example.composedemo.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composedemo.di.Modules
+import com.example.composedemo.navigation.NavRoutes
 import com.example.composedemo.ui.screens.GenericListScreen
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 import org.koin.androidx.compose.KoinAndroidContext
@@ -49,19 +50,18 @@ fun AppRootComponent(modifier: Modifier = Modifier) {
 fun MyAppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "GenericListScreen"
+    startDestination: String = NavRoutes.GENERIC_LIST_SCREEN.screenName
 ) {
     NavHost(
-        modifier = modifier,
+        modifier = modifier.fillMaxSize(),
         navController = navController,
         startDestination = startDestination
     ) {
-        composable("GenericListScreen") {
+        composable(NavRoutes.GENERIC_LIST_SCREEN.screenName) {
             GenericListScreen(navController)
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
