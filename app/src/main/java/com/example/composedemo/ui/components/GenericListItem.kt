@@ -56,7 +56,8 @@ fun GenericListItem(
                     text = itemState.title,
                     modifier = Modifier
                         .weight(1f)
-                        .align(Alignment.CenterVertically)
+                        .align(Alignment.CenterVertically),
+                    style = MaterialTheme.typography.titleMedium
                 )
                 IconButton(onClick = { expanded = !expanded }) {
                     Icon(
@@ -81,6 +82,7 @@ fun GenericListItem(
                 ) {
                     Text(
                         text = itemState.message,
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
