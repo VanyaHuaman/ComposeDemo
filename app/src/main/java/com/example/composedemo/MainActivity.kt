@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(KoinExperimentalAPI::class)
 @Composable
 fun AppRootComponent(modifier: Modifier = Modifier) {
     Surface(
